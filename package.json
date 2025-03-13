@@ -1,0 +1,26 @@
+{
+  "name": "sogniai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ethersproject/bytes": "^5.8.0",
+    "@ethersproject/hash": "^5.8.0",
+    "@ethersproject/keccak256": "^5.8.0",
+    "@ethersproject/strings": "^5.8.0",
+    "cheerio": "^1.0.0",
+    "ethers": "^6.13.5",
+    "fetch": "^1.1.0",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^24.4.0",
+    "uuid": "^11.1.0"
+  }
+}
