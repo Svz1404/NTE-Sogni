@@ -218,8 +218,8 @@ async function runAutomation(proxy = null,kodeReff) {
   space: true,
   maxLength: "0",
 });
-console.log(centerText("=== Telegram Channel 🚀 : NT Exhaust (@NTExhaust) ==="));
-console.log(centerText("⌞👤 Mod : @NT_Exhaust ⌝ \n"));
+console.log(("=== Telegram Channel 🚀 : NT Exhaust (@NTExhaust) ==="));
+console.log(("⌞👤 Mod : @NT_Exhaust ⌝ \n"));
     const kodeReff = await askQuestion('Reff Code: ');
     const useProxy = await askQuestion('Use proxy? (yes/no): ');
     let loopCount;
