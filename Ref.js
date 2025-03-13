@@ -1,6 +1,7 @@
 import { launch } from 'puppeteer';
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
+import cfonts from "cfonts";
 import fs from 'fs/promises';
 import readline from 'readline';
 
@@ -207,6 +208,18 @@ async function runAutomation(proxy = null,kodeReff) {
 
 // Main execution flow
 (async () => {
+  cfonts.say("NT Exhaust", {
+  font: "block",
+  align: "center",
+  colors: ["cyan", "magenta"],
+  background: "black",
+  letterSpacing: 1,
+  lineHeight: 1,
+  space: true,
+  maxLength: "0",
+});
+console.log(centerText("=== Telegram Channel 🚀 : NT Exhaust (@NTExhaust) ==="));
+console.log(centerText("⌞👤 Mod : @NT_Exhaust ⌝ \n"));
     const kodeReff = await askQuestion('Reff Code: ');
     const useProxy = await askQuestion('Use proxy? (yes/no): ');
     let loopCount;
