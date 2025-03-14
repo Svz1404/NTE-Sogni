@@ -140,8 +140,8 @@ async function runAutomation(proxy = null,kodeReff) {
     try{
     await page.goto('https://app.sogni.ai/');
     
-    await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23',{timeout:60000})
-    await page.click('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23')
+    await page.waitForSelector('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]',{timeout:60000})
+    await page.click('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]')
     await new Promise(resolve => setTimeout(resolve, 2000));
     console.log('Create Account using Username : '+username+' | Email : '+emailAddress+' | Password :'+password)
     
@@ -157,8 +157,8 @@ async function runAutomation(proxy = null,kodeReff) {
         await page.type('input[name="referralCode"]',kodeReff)
         await new Promise(resolve => setTimeout(resolve, 2000));
     
-        await page.waitForSelector(`body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23`)
-        await page.click('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23')
+        await page.waitForSelector(`button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]`)
+        await page.click('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]')
         await new Promise(resolve => setTimeout(resolve, 3000));
         await page.waitForSelector('input[name="password"]',{timeout:60000})
         await page.type('input[name="password"]',password)
@@ -167,25 +167,25 @@ async function runAutomation(proxy = null,kodeReff) {
         await page.type('input[name="passwordConfirm"]',password)
         await new Promise(resolve => setTimeout(resolve, 2000));
     
-        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > div > div > label._checkbox_1nxlm_1 > div > svg',{timeout:60000})
-        await page.click('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > div > div > label._checkbox_1nxlm_1 > div > svg')
+        await page.waitForSelector('div[class="_icon_1nxlm_13"]',{timeout:60000})
+        await page.click('div[class="_icon_1nxlm_13"]')
         await new Promise(resolve => setTimeout(resolve, 1000));
     
-        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button',{timeout:60000})
-        await page.click('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button')
+        await page.waitForSelector('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]',{timeout:60000})
+        await page.click('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]')
         await new Promise(resolve => setTimeout(resolve, 3000));
     
         
     
-        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23',{timeout:60000})
-        await page.click('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23')
+        await page.waitForSelector('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]',{timeout:60000})
+        await page.click('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]')
         await new Promise(resolve => setTimeout(resolve, 5000));
     
-        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formContent_e6t3l_95 > div._emailConfirmation_1g07h_221 > div > h3',{timeout:60000})
-        const getResult = await page.$eval('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formContent_e6t3l_95 > div._emailConfirmation_1g07h_221 > div > h3',(el) =>el.textContent)
+        await page.waitForSelector('h3',{timeout:60000})
+        const getResult = await page.$eval('h3',(el) =>el.textContent)
         console.log('Result Register => '+getResult)
-        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button',{timeout:60000})
-        await page.click('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button')
+        await page.waitForSelector('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]',{timeout:60000})
+        await page.click('button[class="_button_1a2p7_1 _variant-primary_1a2p7_52 _size-md_1a2p7_90 _fullWidth_1a2p7_23"]')
         await new Promise(resolve => setTimeout(resolve, 5000));
     
         const getVerif = await getVerificationLink(username,domain)
