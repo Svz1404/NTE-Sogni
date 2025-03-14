@@ -137,7 +137,7 @@ async function runAutomation(proxy = null,kodeReff) {
             const [proxyUser, proxyPass] = auth.split(':');
             await page.authenticate({ username: proxyUser, password: proxyPass });
         }
-    
+    try{
     await page.goto('https://app.sogni.ai/');
     
     await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23',{timeout:60000})
@@ -181,8 +181,8 @@ async function runAutomation(proxy = null,kodeReff) {
         await page.click('body > div._backdrop_1y9op_1 > div > div > form > div._formFooter_e6t3l_116 > button._button_1a2p7_1._variant-primary_1a2p7_52._size-md_1a2p7_90._fullWidth_1a2p7_23')
         await new Promise(resolve => setTimeout(resolve, 5000));
     
-        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formContent_e6t3l_95 > div._emailConfirmation_iz7bu_221 > div > h3',{timeout:60000})
-        const getResult = await page.$eval('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formContent_e6t3l_95 > div._emailConfirmation_iz7bu_221 > div > h3',(el) =>el.textContent)
+        await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formContent_e6t3l_95 > div._emailConfirmation_1g07h_221 > div > h3',{timeout:60000})
+        const getResult = await page.$eval('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formContent_e6t3l_95 > div._emailConfirmation_1g07h_221 > div > h3',(el) =>el.textContent)
         console.log('Result Register => '+getResult)
         await page.waitForSelector('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button',{timeout:60000})
         await page.click('body > div._backdrop_1y9op_1 > div > div > div._contentPanel_e6t3l_74 > div._formFooter_e6t3l_116 > button')
@@ -197,13 +197,18 @@ async function runAutomation(proxy = null,kodeReff) {
     
         await page2.waitForSelector(`body > section.successsection > div > div > h1`,{timeout:60000})
         const resultVerif = await page2.$eval('body > section.successsection > div > div > h1',(el) => el.textContent)
-          console.log(resultVerif)
-          const dataHasil = `Username: ${username} | Email: ${emailAddress} | Password: ${password} | Hasil : ${resultVerif}\n\n`;
-          await fs.appendFile('accounts.txt', dataHasil, 'utf8');
-          console.log('Account details saved successfully!');
+        console.log(resultVerif)
+        const dataHasil = `Username: ${username} | Email: ${emailAddress} | Password: ${password} | Hasil : ${resultVerif}\n\n`;
+        await fs.appendFile('accounts.txt', dataHasil, 'utf8');
+        console.log('Account details saved successfully!');
 
-    await browser.close();
-    console.log(`Completed for ${emailAddress}`);
+        await browser.close();
+        console.log(`Completed for ${emailAddress}`);
+    }
+        catch{
+            await browser.close()
+            console.log("Terjadi Kesalahan Dalam Nama,atau Yang lain!")
+        }
 }
 
 // Main execution flow
